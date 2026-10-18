@@ -37,10 +37,11 @@
 
 ## SavedVariables: PugaWhoIsTalking
 
-#Locale.lua
-Config.lua
+Constants.lua
 Common.lua
 Compat\Compat.lua
-Core.lua
 ChatData.lua
+Locale.lua
+Core.lua
+Config.lua
 Chat.lua

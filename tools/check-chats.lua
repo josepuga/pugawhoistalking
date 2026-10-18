@@ -1,14 +1,5 @@
--- Chats validator. 
--- Not for use in WoW, Development tool only.
--- Run from tools/ with: lua check-chats.lua
---[[
-    * Todos los canales de ChatOrder deben existir en ChatDefaults.
-    * Ningún canal de ChatDefaults puede faltar en ChatOrder.
-    * No puede haber canales duplicados en ChatOrder.
-    * Cada canal debe definir Class, Race y Level, con valores booleanos.
-    * Las equivalencias de ChatGroups deben apuntar a canales configurados.
-    * Detecta campos inesperados y equivalencias incorrectas.
---]]
+-- Chats validator.
+-- Development tool only; run from tools/ with: lua check-chats.lua
 
 local NS = {}
 assert(loadfile("../ChatData.lua"))("PugaWhoIsTalking", NS)
@@ -31,7 +22,8 @@ end
 local function CheckChats()
     if not IsTable(NS.ChatOrder, "ChatOrder")
         or not IsTable(NS.ChatDefaults, "ChatDefaults")
-        or not IsTable(NS.ChatGroups, "ChatGroups") then
+        or not IsTable(NS.ChatGroups, "ChatGroups")
+        or not IsTable(NS.ChatEvents, "ChatEvents") then
         return
     end
 
@@ -88,12 +80,46 @@ local function CheckChats()
             Error("Alias " .. tostring(Alias) .. " also has separate defaults")
         end
     end
+    -- Every registered event must resolve to a configured channel.
+    -- Every visible configuration must be reachable from a registered event.
+    local Registered = {}
+    local Reachable = {}
+
+    for Index, Event in ipairs(NS.ChatEvents) do
+        if type(Event) ~= "string" then
+            Error("ChatEvents[" .. Index .. "] is not a string")
+        else
+            if Registered[Event] then
+                Error("Duplicate in ChatEvents: " .. Event)
+            end
+            Registered[Event] = true
+
+            local ConfigEvent = NS.ChatGroups[Event] or Event
+            if NS.ChatDefaults[ConfigEvent] == nil then
+                Error("Registered event " .. Event .. " has no configuration")
+            else
+                Reachable[ConfigEvent] = true
+            end
+        end
+    end
+
+    for Event in pairs(NS.ChatDefaults) do
+        if not Reachable[Event] then
+            Error("Configuration " .. tostring(Event) .. " is not used by any registered event")
+        end
+    end
+
+    for Alias in pairs(NS.ChatGroups) do
+        if not Registered[Alias] then
+            Error("Chat alias " .. tostring(Alias) .. " is not a registered event")
+        end
+    end
+
 end
 
 CheckChats()
 
 -- TODO: Validate Locale/*.lua when translations are implemented.
--- TODO: Cross-check all registered chat events once the event list is in ChatData.lua.
 
 if Errors > 0 then
     io.stderr:write(Errors .. " error(s) found.\n")

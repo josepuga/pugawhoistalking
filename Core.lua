@@ -51,6 +51,7 @@ end
 -- This function fix this.
 function NS.GetRaceAtlasName(Race)
     local Name = Race:lower()
+    
     return (NS.RaceAtlasNames and NS.RaceAtlasNames[Name]) or Name
 end
 

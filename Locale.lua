@@ -6,21 +6,21 @@ NS.Locale = {
     ---
     enUS = {
         CHAT = {
-        SAY = "Say",
-        YELL = "Yell",
-        WHISPER = "Whisper",
-        PARTY = "Party",
-        RAID = "Raid",
-        GUILD = "Guild",
-        INSTANCE_CHAT = "Instance",
-        OFFICER = "Officer",
-        CHANNEL = "Channel",
+            SAY = "Say",
+            YELL = "Yell",
+            WHISPER = "Whisper",
+            PARTY = "Party",
+            RAID = "Raid",
+            GUILD = "Guild",
+            INSTANCE_CHAT = "Instance",
+            OFFICER = "Officer",
+            CHANNEL = "Other Channels",
         },
 
         CLASS = "Class",
         RACE = "Race",
         LEVEL = "Level (*)",
-        WHEN_AVAILABLE = "(*) When available.",
+        WHEN_AVAILABLE = "(*) Level availability depends on your WoW version.",
     },
 
     ---
@@ -35,12 +35,13 @@ NS.Locale = {
             RAID = "Banda",
             GUILD = "Hermandad",
             INSTANCE_CHAT = "Instancia",
-            OFFICER = "Officer",
-            CHANNEL = "Canal",        },
+            OFFICER = "Oficiales de hermandad",
+            CHANNEL = "Resto de canales",
+        },
 
         CLASS = "Clase",
         RACE = "Raza",
         LEVEL = "Nivel (*)",
-        WHEN_AVAILABLE = "(*) Cuando esté disponible.",
+        WHEN_AVAILABLE = "(*) Disponib. de nivel depende de la version de WoW.",
     },
 }

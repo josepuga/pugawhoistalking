@@ -6,5 +6,6 @@ NS.RaceAtlasNames = {
     scourge = "undead",
     -- Retail
     lightforgeddraenei = "lightforged",
+    -- TODO: Tauren montealto
 
 }
