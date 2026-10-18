@@ -1,0 +1,45 @@
+## Title: PugaWhoIsTalking
+## Version: 0.0.1
+## Author: José Puga
+## X-License: MIT
+# CurseForge: https://www.curseforge.com/wow/addons/pugawhoistalking
+# GitHub: https://github.com/josepuga/pugawhoistalking
+
+## Dependencies:
+## IconTexture: 132333
+## X-Curse-Project-ID: 
+## X-Wago-ID: 
+## X-WoWI-ID:
+
+## TAG_ORDER: wow wow_anniversary wow_classic_beta wow_classic wow_classic_era
+## Interface: 120105, 20506, 16001, 50504, 11509
+# Extract WoW version with: /dump select(4, GetBuildInfo())
+
+## Notes: Show info about the player talking in the current chat.
+## Notes-esES: Muestra información sobre el jugador que está hablando en el chat actual.
+## Notes-esMX: Muestra información sobre el jugador que está hablando en el chat actual.
+## Notes-ptBR: 
+## Notes-deDE: 
+## Notes-frFR: 
+
+## Category: Other
+## Category-deDE: Anderes
+## Category-esES: Otros
+## Category-esMX: Otros
+## Category-frFR: Autre
+## Category-itIT: Altro
+## Category-koKR: 기타
+## Category-ptBR: Outro
+## Category-ruRU: Другое
+## Category-zhCN: 其它
+## Category-zhTW: 其他
+
+
+## SavedVariables: PugaWhoIsTalking
+
+#Locale.lua
+Config.lua
+Common.lua
+Core.lua
+ChatData.lua
+Chat.lua

@@ -1,0 +1,6 @@
+manual-changelog: CHANGELOG.md
+
+ignore:
+    - PRIVATE
+    - *.toc.bak
+

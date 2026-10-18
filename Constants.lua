@@ -1,0 +1,3 @@
+local AddonName, NS = ...
+
+NS.ICON_SIZE = 16
