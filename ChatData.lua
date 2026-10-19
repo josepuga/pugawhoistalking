@@ -66,13 +66,13 @@ NS.ChatDefaults = {
 
     CHAT_MSG_RAID = {
         Class = true,
-        Race = true,
-        Level = true,
+        Race = false,
+        Level = false,
     },
 
     CHAT_MSG_INSTANCE_CHAT = {
         Class = true,
-        Race = true,
+        Race = false,
         Level = true,
     },
 

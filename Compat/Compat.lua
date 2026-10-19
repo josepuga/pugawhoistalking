@@ -4,8 +4,10 @@ local AddonName, NS = ...
 NS.RaceAtlasNames = {
     -- Classic
     scourge = "undead",
+
     -- Retail
     lightforgeddraenei = "lightforged",
-    -- TODO: Tauren montealto
+    highmountaintauren = "highmountain",
+    zandalaritroll = "zandalari",
 
 }

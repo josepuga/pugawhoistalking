@@ -2,5 +2,6 @@ manual-changelog: CHANGELOG.md
 
 ignore:
     - PRIVATE
+    - tools
     - *.toc.bak
 

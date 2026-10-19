@@ -18,7 +18,10 @@ local function PugaWhoIsTalkingFilter(
 
     -- Resolve equivalent chat events.
     local ConfigEvent = NS.ChatGroups[Event] or Event
-    local Config = NS.ChatDefaults[ConfigEvent]
+
+    -- Stored configuration or Default
+    local Config = (PugaWhoIsTalking and PugaWhoIsTalking[ConfigEvent])
+        or NS.ChatDefaults[ConfigEvent]
 
     if not Config then
         return false
